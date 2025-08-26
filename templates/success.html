@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Documents Generated Successfully</h2>
+  <p>You can download your files below:</p>
+
+  <ul>
+    {% if cv_docx %}
+      <li><a href="{{ url_for('download', filename=cv_docx) }}">Download CV (DOCX)</a></li>
+    {% endif %}
+    {% if cv_pdf %}
+      <li><a href="{{ url_for('download', filename=cv_pdf) }}">Download CV (PDF)</a></li>
+    {% endif %}
+    {% if cl_docx %}
+      <li><a href="{{ url_for('download', filename=cl_docx) }}">Download Cover Letter (DOCX)</a></li>
+    {% endif %}
+    {% if cl_pdf %}
+      <li><a href="{{ url_for('download', filename=cl_pdf) }}">Download Cover Letter (PDF)</a></li>
+    {% endif %}
+  </ul>
+
+  <a href="{{ url_for('index') }}" class="btn">Generate Another</a>
+{% endblock %}
